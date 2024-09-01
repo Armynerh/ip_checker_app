@@ -1,5 +1,5 @@
 from flask import render_template
-from ip_checker_app import app
+from ip_sub_app import app
 
 @app.route('/')
 def home():
