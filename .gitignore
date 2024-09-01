@@ -1,3 +1,2 @@
-   .DS_Store
-    ipenv
-    __pycache__
+.DS_Store
+ipenv/
