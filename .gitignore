@@ -1,3 +1,10 @@
+
 .DS_Store
+
+
 ipenv/
 optimusenv/
+
+
+__pycache__/
+*.pyc
