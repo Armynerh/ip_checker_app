@@ -4,7 +4,7 @@ from ip_sub_app import app
 
 def get_ip_class(first_octet):
     """Determine the class of the IP address based on its first octet."""
-    first_octet = int(first_octet) 
+    first_octet = int(first_octet)
     
     if 0 <= first_octet <= 127:
         return "A"
@@ -33,10 +33,18 @@ def home():
         try:
             network = ipaddress.IPv4Network(f"{ip_address}/{subnet_mask}", strict=False)
             ip_class = get_ip_class(ip_octet1)
+            
+            ip = ipaddress.IPv4Address(ip_address)
+            
+            if ip in network.hosts():
+                usable = "Yes"
+            else:
+                usable = "No"
+            
             result = {
                 "IP_CLASS": ip_class,
                 "GROUP": "Private" if network.is_private else "Public",
-                "USABLE": "Yes" if network.is_private else "No",
+                "USABLE": usable,
                 "NETWORK_ID": str(network.network_address),
                 "BROADCAST_IP": str(network.broadcast_address),
                 "SUBNET_MASK": subnet_mask,
