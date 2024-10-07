@@ -1,4 +1,4 @@
-from ip_checker_app import app
+from ip_sub_app import app
 
 if __name__ == '__main__':
     app.run(debug=True)
